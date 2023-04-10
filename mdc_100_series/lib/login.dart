@@ -13,6 +13,8 @@
 // limitations under the License.
 
 import 'package:flutter/material.dart';
+import 'package:shrine/home.dart';
+import 'SignUpPage.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -59,22 +61,40 @@ class _LoginPageState extends State<LoginPage> {
               obscureText: true,
             ),
             OverflowBar(
-              alignment: MainAxisAlignment.end,
+              alignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 // TODO: Add a beveled rectangular border to CANCEL (103)
                 TextButton(
-                  child: const Text('CANCEL'),
+                  child: const Text(
+                    'CANCEL',
+                    style: TextStyle(color: Colors.black),
+                  ),
                   onPressed: () {
                     _usernameController.clear();
                     _passwordController.clear();
                   },
                 ),
+                TextButton(
+                  child: Text('Sign Up', style: TextStyle(color: Colors.black)),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SignUpPage()));
+                  },
+                ),
                 // TODO: Add an elevation to NEXT (103)
                 // TODO: Add a beveled rectangular border to NEXT (103)
                 ElevatedButton(
-                  child: const Text('NEXT'),
+                  style: ElevatedButton.styleFrom(
+                      primary: Color.fromARGB(255, 199, 198, 198)),
+                  child: const Padding(
+                    padding: EdgeInsets.fromLTRB(8, 0, 8, 0),
+                    child: Text('NEXT', style: TextStyle(color: Colors.black)),
+                  ),
                   onPressed: () {
-                    Navigator.pop(context);
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => HomePage()));
                   },
                 ),
               ],

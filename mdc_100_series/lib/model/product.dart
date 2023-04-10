@@ -20,19 +20,22 @@ enum Category {
 }
 
 class Product {
-  const Product({
-    required this.category,
-    required this.id,
-    required this.isFeatured,
-    required this.name,
-    required this.price,
-  });
+  Product(
+      {required this.category,
+      required this.id,
+      required this.isFeatured,
+      required this.name,
+      required this.subtitle,
+      required this.star,
+      required this.phoneNumber});
 
   final Category category;
   final int id;
-  final bool isFeatured;
+  bool isFeatured;
   final String name;
-  final int price;
+  final String subtitle;
+  final int star;
+  final String phoneNumber;
 
   String get assetName => '$id-0.jpg';
   String get assetPackage => 'shrine_images';
